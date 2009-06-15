@@ -7,7 +7,7 @@ class WebsitesController < ApplicationController
   def index
     @websites = Website.all(:include => :counts)
     
-    @websites.sort! {|a,b| b.counts.last.nil? ? 0 : b.counts.last.count <=> a.counts.last.nil? ? 0 : a.counts.last.count}
+    @websites.sort! {|a,b| (b.counts.last.nil? ? 0 : b.counts.last.count) <=> (a.counts.last.nil? ? 0 : a.counts.last.count)}
 
     respond_to do |format|
       format.html # index.html.erb
