@@ -1,0 +1,12 @@
+<h1>Register</h1>
+ 
+<% form_for @user, :url => account_path do |f| %>
+  <%= f.error_messages %>
+  <%= render :partial => "form", :object => f %>
+  <%= form.label :email %><br />
+  <%= form.text_field :email %><br />
+  <br />
+  <%= form.label :admin %>
+  <%= form.check_box :admin_status %><br />
+  <%= f.submit "Create User" %>
+<% end %>
