@@ -50,6 +50,7 @@ class WebsitesController < ApplicationController
     respond_to do |format|
       if @website.save
       current_user.websites << @website
+      @website.count if @website.counts.last.nil?
       
         flash[:notice] = 'Website was successfully created.'
         format.html { redirect_to(@website) }
