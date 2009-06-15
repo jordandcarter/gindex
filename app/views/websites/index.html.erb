@@ -10,8 +10,8 @@
 <% @websites.each do |website| %>
   <tr>
     <td><%=h website.url %></td>
-    <td><%=h website.counts.last.nil? "na" : website.counts.last.count %></td>
-    <td><%=h website.counts.last.nil? "na" : website.counts.last.created_at %></td>
+    <td><%=h website.counts.last.nil? ? "na" : website.counts.last.count %></td>
+    <td><%=h website.counts.last.nil? ? "na" : website.counts.last.created_at %></td>
     <td><%= link_to 'Show', website %></td>
     <td><%= link_to 'Edit', edit_website_path(website) %></td>
     <td><%= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete %></td>
