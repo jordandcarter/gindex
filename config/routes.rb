@@ -1,5 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   
+  map.graph_swf '/open-flash-chart.swf', :controller => "not_a_controller", :path => '/open-flash-chart.swf'
   map.resources :graph, :member => {:website => :get}, :collection => {:websites => :get}
   map.resources :websites
 
