@@ -38,6 +38,7 @@ class ApplicationController < ActionController::Base
     end
     
     def require_admin
+      require_user
       unless current_user.admin? || User.count == 0
         flash[:notice] = "You must be an admin"
         redirect_back_or_default( account_url )
