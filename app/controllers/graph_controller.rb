@@ -8,7 +8,7 @@ class GraphController < ApplicationController
   end
   
   def website
-    @website = Website.find(1, :include => :counts)
+    @website = Website.find(params[:id], :include => :counts)
     @min = @website.counts.collect(&:count).min
     @max = @website.counts.collect(&:count).max
     @steps = (@max - @min) / 10
