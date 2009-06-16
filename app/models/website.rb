@@ -1,3 +1,4 @@
+require "lib/counter"
 class Website < ActiveRecord::Base
 
   has_many :user_websites
@@ -11,7 +12,7 @@ class Website < ActiveRecord::Base
   def self.count_all
     Website.all.each do |website|
       website.count
-      #sleep 60+rand(60)
+      sleep 30+rand(30)
     end
   end
   
