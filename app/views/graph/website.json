@@ -1,0 +1,12 @@
+{ "elements": [
+ { "type": 
+    "line",
+    "values": [<%= @website.counts.collect(&:count).join(',') %>],
+    "dot-style": { "type": "dot", "dot-size": 0, "colour": "#DFC329" },
+    "width": 1,
+    "colour": "#DFC329",
+    "text": "<%= @website.url %>",
+    "font-size": 10 }],
+"title": { "text": "Three lines example" },
+"y_axis": { "min": <%= @min %>, "max": <%= @max %>, "steps": <%= @steps %> }
+}

@@ -1,8 +1,19 @@
+<% content_for :head do %>
+<script type="text/javascript">
+swfobject.embedSWF("/open-flash-chart.swf", "website_graph", "1500", "500",
+"9.0.0", "expressInstall.swf",
+{"data-file":"/graph/1/website.json"} );
+</script>
+<% end %>
 <p>
   <b>Url:</b>
   <%=h @website.url %>
 </p>
 
+<div id="website_graph">
+			<h1>Flash Player Not Installed</h1>
+			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
+</div>
 
 <%= link_to 'Edit', edit_website_path(@website) %> |
 <%= link_to 'Back', websites_path %>

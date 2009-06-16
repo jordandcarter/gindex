@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :graph, :member => {:website => :get}, :collection => {:websites => :get}
   map.resources :websites
 
   map.login 'login', :controller => 'user_sessions', :action => 'new'  
