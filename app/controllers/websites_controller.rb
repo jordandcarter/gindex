@@ -1,11 +1,10 @@
 class WebsitesController < ApplicationController
   before_filter :require_user, :only => [:new, :create]
   
-  before_filter :require_admin, :only => [:index, :update, :destroy]
   # GET /websites
   # GET /websites.xml
   def index
-    @websites = Website.all(:include => :counts)
+    @websites = current_user.websites(:include => :counts)
     
     @websites.sort! {|a,b| (b.counts.last.nil? ? 0 : b.counts.last.count) <=> (a.counts.last.nil? ? 0 : a.counts.last.count)}
 
@@ -53,7 +52,7 @@ class WebsitesController < ApplicationController
       @website.count if @website.counts.last.nil?
       
         flash[:notice] = 'Website was successfully created.'
-        format.html { redirect_to(@website) }
+        format.html { redirect_to(websites_path) }
         format.xml  { render :xml => @website, :status => :created, :location => @website }
       else
         format.html { render :action => "new" }
@@ -82,7 +81,7 @@ class WebsitesController < ApplicationController
   # DELETE /websites/1
   # DELETE /websites/1.xml
   def destroy
-    @website = Website.find(params[:id])
+    @website = current_user.user_websites.find_by_website_id(params[:id])
     @website.destroy
 
     respond_to do |format|

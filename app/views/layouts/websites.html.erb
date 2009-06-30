@@ -12,8 +12,14 @@
 <body>
 
 <p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield %>
+  
+  
+  <div style="float:left;width:200px">
+  <%= render :partial => 'common/account' %>
+</div>  
+<div style="float:left">
+  <%= yield %>
+</div>
 
 </body>
 </html>

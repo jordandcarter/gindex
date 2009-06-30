@@ -2,7 +2,12 @@
 <% @websites.each_with_index do |website, i| %>
  { "type": 
     "line",
-    "values": [<%= website.counts.collect(&:count).join(',') %>],
+    "values": [
+    <% @dates.each do |date| %>
+    <%= website.counts.
+    <% end %>
+    <%= website.counts.collect(&:count).join(',') %>
+    ],
     "dot-style": { "type": "dot", "dot-size": 0, "colour": "#DFC329" },
     "width": 1,
     "colour": "#DFC329",
@@ -10,5 +15,6 @@
     "font-size": 10 } <% unless i+1 == @websites.size %> , <% end %>
 <% end %>],
 "title": { "text": "Three lines example" },
+"x_axis": { "labels": { "rotate": 90, "labels": ["<%= @dates.collect{|d| d.strftime("%d/%m")}.join("\",\"") %>"] } },
 "y_axis": { "min": <%= @min %>, "max": <%= @max %>, "steps": <%= @steps %> }
 }

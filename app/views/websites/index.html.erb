@@ -1,6 +1,6 @@
 <% content_for :head do %>
 <script type="text/javascript">
-swfobject.embedSWF("<%= graph_swf_path %>", "website_graph", "1024", "200",
+swfobject.embedSWF("<%= graph_swf_path %>", "website_graph", "1024", "500",
 "9.0.0", "expressInstall.swf",
 {"data-file":"<%= websites_graph_path %>.json"} );
 </script>
@@ -14,19 +14,18 @@ swfobject.embedSWF("<%= graph_swf_path %>", "website_graph", "1024", "200",
 
 <table>
   <tr>
+  <th>Date</th>
     <th>Url</th>
     <th>Last Count</th>
-    <th>Last Count At</th>
   </tr>
 
 <% @websites.each do |website| %>
   <tr>
-    <td><%=h website.url %></td>
+    <td><%=h website.counts.last.nil? ? "na" : website.counts.last.created_at.strftime("%d/%m/%y") %></td>
+    <td><%= link_to h(website.url), website %></td>
     <td><%=h website.counts.last.nil? ? "na" : website.counts.last.count %></td>
-    <td><%=h website.counts.last.nil? ? "na" : website.counts.last.created_at %></td>
-    <td><%= link_to 'Show', website %></td>
     <td><%= link_to 'Edit', edit_website_path(website) %></td>
-    <td><%= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Remove', website, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
