@@ -1,20 +1,20 @@
 { "elements": [
 <% @websites.each_with_index do |website, i| %>
- { "type": 
-    "line",
+ { "type": "line",
+	        "tooltip": "Spent $#val# #x_label#",
     "values": [
-    <% @dates.each do |date| %>
-    <%= website.counts.
+    <% @dates.each_with_index do |date, j| %>
+      <%= (value = @counts[website.url][date.strftime('%d%m%y')]).nil? ? 'null' : value.first.nil? ? 'null' : value.first.count%> <% unless j+1 == @dates.size %> , <% end %>
     <% end %>
-    <%= website.counts.collect(&:count).join(',') %>
     ],
-    "dot-style": { "type": "dot", "dot-size": 0, "colour": "#DFC329" },
+    "dot-style": { "type": "dot", "dot-size": 0, "colour": "#000000","tip": "#key# - #val#"},
     "width": 1,
     "colour": "#DFC329",
     "text": "<%= website.url %>",
     "font-size": 10 } <% unless i+1 == @websites.size %> , <% end %>
 <% end %>],
-"title": { "text": "Three lines example" },
-"x_axis": { "labels": { "rotate": 90, "labels": ["<%= @dates.collect{|d| d.strftime("%d/%m")}.join("\",\"") %>"] } },
-"y_axis": { "min": <%= @min %>, "max": <%= @max %>, "steps": <%= @steps %> }
+"title": { "text": "Google Index Count" },
+"x_axis": { "labels": { "rotate": 90, "labels": ["<%= @dates.collect{|d| d.strftime("%d/%m")}.join("\",\"") %>"] } ,"grid-colour":"#FFFFFF"},
+"y_axis": { "min": <%= @min %>, "max": <%= @max %>, "steps": <%= @steps %> ,"grid-colour":"#FFFFFF"},
+"bg_colour": "#FFFFFF"
 }
