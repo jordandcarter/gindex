@@ -1,5 +1,5 @@
 class WebsitesController < ApplicationController
-  before_filter :require_user, :only => [:new, :create, :index]
+  before_filter :require_user
   
   # GET /websites
   # GET /websites.xml
@@ -49,7 +49,7 @@ class WebsitesController < ApplicationController
     respond_to do |format|
       if @website.save
       current_user.websites << @website
-      @website.count if @website.counts.last.nil?
+      #@website.count if @website.counts.last.nil?
       
         flash[:notice] = 'Website was successfully created.'
         format.html { redirect_to(websites_path) }

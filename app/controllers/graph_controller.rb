@@ -4,9 +4,10 @@ class GraphController < ApplicationController
     @end_date = Date.today
     @start_date = @end_date - 30
     
-    @websites = Website.all
-    @min = @websites.collect { |web| web.counts.from_date(@start_date).to_date(@end_date).collect(&:count).min }.min rescue nil
-    @max = @websites.collect { |web| web.counts.from_date(@start_date).to_date(@end_date).collect(&:count).max }.max rescue nil
+    @websites = current_user.websites
+    @min = WebsiteIndexCount.from_date(@start_date).to_date(@end_date).minimum('count', :joins => {:website => :user_websites}, :conditions => ["user_id = ?",current_user.id])
+    @max = WebsiteIndexCount.from_date(@start_date).to_date(@end_date).maximum('count', :joins => {:website => :user_websites}, :conditions => ["user_id = ?",current_user.id])
+    
     @max ||= 100
     @min ||= 0
     
@@ -32,19 +33,8 @@ class GraphController < ApplicationController
     end
     
     
-    @counts.keys.each do |w|
-      @dates.each do |kk|
-        k = kk.strftime("%d%m%y")
-        if @counts[w][k]
-          puts k
-          puts @counts[w][k][0] ? w+@counts[w][k][0].created_at.to_s : nil
-          #puts @counts[w][k][1] ? w+@counts[w][k][1].created_at.to_s : nil
-        end
-      end
-    end
-    @steps = (@max - @min) / 10
     
-    puts @counts.inspect
+    @steps = (@max - @min) / 10
   end
   
   def website

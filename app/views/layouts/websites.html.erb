@@ -4,19 +4,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Websites: <%= controller.action_name %></title>
+  <title>GIndex - <%= yield :title %></title>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= javascript_include_tag 'swfobject' %>
   <%= yield :head %>
 </head>
 <body>
-
+<div style="float:right"><%= link_to "Logout", logout_path unless current_user.nil?%></div>
 <p style="color: green"><%= flash[:notice] %></p>
   
-  
+<% unless current_user.nil? %>
   <div style="float:left;width:200px">
   <%= render :partial => 'common/account' %>
 </div>  
+<% end %>
 <div style="float:left">
   <%= yield %>
 </div>

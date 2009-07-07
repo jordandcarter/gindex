@@ -4,7 +4,7 @@
 	        "tooltip": "Spent $#val# #x_label#",
     "values": [
     <% @dates.each_with_index do |date, j| %>
-      <%= (value = @counts[website.url][date.strftime('%d%m%y')]).nil? ? 'null' : value.first.nil? ? 'null' : value.first.count%> <% unless j+1 == @dates.size %> , <% end %>
+      <%= begin @counts[website.url][date.strftime('%d%m%y')].first.count rescue 'null' end%> <% unless j+1 == @dates.size %> , <% end %>
     <% end %>
     ],
     "dot-style": { "type": "dot", "dot-size": 0, "colour": "#000000","tip": "#key# - #val#"},
