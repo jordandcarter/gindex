@@ -2,7 +2,9 @@ class GraphController < ApplicationController
   
   def websites
     @end_date = Date.today
-    @start_date = @end_date - 30
+    days = params[:days]
+    days ||= 60
+    @start_date = @end_date - days.to_i
     
     @websites = current_user.websites
     @min = WebsiteIndexCount.from_date(@start_date).to_date(@end_date).minimum('count', :joins => {:website => :user_websites}, :conditions => ["user_id = ?",current_user.id])
