@@ -65,7 +65,7 @@ class Counter
         #  puts "unable to write to last_response.html file"
         #end
         doc = Hpricot(html_page)
-
+        data = "0"
         start = Time.now
         i = doc.search('#ssb/p/b[3]')
         i.each do |div|
