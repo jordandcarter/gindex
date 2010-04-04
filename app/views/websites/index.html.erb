@@ -1,16 +1,8 @@
 <% content_for :head do %>
-<script type="text/javascript">
-swfobject.embedSWF("<%= graph_swf_path %>", "website_graph", "1024", "500",
-"9.0.0", "expressInstall.swf",
-{"data-file":"<%= websites_graph_path %>.json"} );
-</script>
 <% end %>
 <h1>Listing websites</h1>
 
-<div id="website_graph">
-			<h1>Flash Player Not Installed</h1>
-			<p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" /></a></p>
-</div>
+<div id="placeholder" style="height: 400px; width:600px"></div>
 
 <table>
   <tr>
@@ -29,5 +21,12 @@ swfobject.embedSWF("<%= graph_swf_path %>", "website_graph", "1024", "500",
   </tr>
 <% end %>
 </table>
-
-<br />
+<script type="text/javascript">
+$(document).ready(function(){
+      $.plot($("#placeholder"), [
+         <% @websites.each_with_index do |website, i| %>
+         { label: "<%= website.url %>", data: [ <%=website.counts.from_date(1.month.ago).collect{|count| "[#{count.created_at.to_i*1000}, #{count.count}]"}.join(",") %>]} <%= "," unless i == @websites.size%>
+         <% end %>
+      ], {xaxis:{mode: "time"}} );
+});
+</script>
