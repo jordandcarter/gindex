@@ -1,0 +1,281 @@
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+
+.clear {
+clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+ 
+h2 {
+margin: 10px 0 10px;
+font-size: 24px;
+color: #7A6770;
+}
+ 
+strong {
+font-weight: bold;
+}
+
+#container {
+padding-left: 200px; /* LC fullwidth */
+padding-right: 190px; /* RC fullwidth + CC padding */
+width:680px;
+margin: 0 auto;
+}
+
+
+body {
+font-family: arial, verdana, helvetica, "trebuchet MS", trebuchet, sans-serif;
+text-align: left;
+margin: 0 auto;
+}
+
+.content {
+width: 1000px;
+min-height: 800px;
+margin: 0 auto;
+background-color: #fff;
+}
+
+.left_right_col {
+  padding: 10px;
+}
+
+.left_col {
+  float: left;
+  width: 200px;
+  height: 200px;
+  padding: 10px 0 0 0;
+}
+
+.right_col {
+  float: left;
+  width: 560px;
+}
+
+input[type=radio] {
+  margin: 0 5px 0 10px;
+}
+div.element {
+  clear:both;
+  margin: 10px 0 0 0;
+}
+div.element label {
+  width: 150px;
+  float:left;
+}
+div.element label.radio {
+  width: 50px;
+  float:none;
+}
+.contract_details div.element label {
+  width: 160px;
+}
+div.element label.long {
+  width: auto;
+}
+div.name div.first,div.name div.middle,div.name div.last {
+  display:inline;
+}
+div.name input, .name .round, .name .round-border {
+  width: 120px;
+}
+
+.loading {
+  padding: 1px;
+  background: url("/images/ajax_loader.gif") no-repeat right top;
+  width:16px;
+  height:16px;
+  float: left;
+  display: inline
+}
+
+.login_details {
+  font-size: 14px;
+  float: right;
+}
+
+.header {
+  background: url("/images/header_bg.png") no-repeat;
+  width: 801px;
+  height: 69px;
+  margin: 0 auto;
+}
+
+.icon_new_employee {
+  background: url("/images/header_icon_new_employee.png") no-repeat;
+  width: 75px;
+  height: 69px;
+  float: left;
+}
+
+.icon_id_card, .icon_contract, .icon_setup {
+  margin: 0 10px 0 0;
+  width: 29px;
+  height: 25px;
+  float: left;
+}
+
+.icon_big_details, .icon_big_contract, .icon_big_options {
+  margin: 0 10px 0 0;
+  width: 46px;
+  height: 39px;
+  float: left;
+}
+
+.icon_id_card {
+  background: url("/images/icon_sm_details.png") no-repeat;
+}
+
+.icon_contract {
+  background: url("/images/icon_sm_contract.png") no-repeat;
+}
+
+.icon_setup {
+  background: url("/images/icon_sm_options.png") no-repeat;
+}
+
+.icon_big_details {
+  background: url("/images/icon_big_details.png") no-repeat;
+}
+
+.icon_big_contract {
+  background: url("/images/icon_big_contract.png") no-repeat;
+}
+.icon_big_options {
+  background: url("/images/icon_big_options.png") no-repeat;
+}
+
+.left_col li {
+  padding: 5px;
+  height: 27px;
+  width: 162;
+  line-height: 25px;
+}
+
+.left_col li.current_page {
+  background: url("/images/sidenav_active_bg.png") no-repeat;
+  /**background: #E6E6E6;*/
+}
+
+.left_col {
+  color: #808080;
+  font-size: 16px;
+}
+
+.header h1 {
+   float: left;
+   line-height: 69px;
+   font-weight: bold;
+   font-size: 24px;
+}
+
+.note {
+  font-size: 13px;
+  color: #666;
+  background: #FEFFEE;
+  padding: 10px;
+}
+
+.legend {
+  font-size: 10px;
+  color: #7A6770;
+  line-height: 10px;
+}
+
+label {
+  line-height: 26px;
+  font-size: 14px;
+  color: #7A6770;
+}
+
+label.radio {
+  color: #000;
+}
+
+input {
+  padding: 4px 0 0 4px;
+  height: 20px;
+  font-size: 14px;
+  color: #B3B3B3;
+}
+
+input.changed {
+  color: #000;
+}
+
+.required {
+  font-size: 12px;
+  color: red;
+}
+
+.validation_error {
+  font-size: 12px;
+  color: red;
+  margin: 0;
+  display: none;
+}
+
+.requirements {
+  margin: 40px 0 0 0;
+  font-size: 12px;
+  color: #4D4D4D;
+}
+
+.position_details {
+  min-height: 44px;
+  margin: 5px 0 0 0;
+  font-size: 12px;
+}
+
+.round {
+background-color: #F2F2F2;
+}
+.round-border {
+  padding: 1px;
+  background: #A6A6A6;
+}
+.round-border.error {
+  background: red;
+}
+.name .round-border {
+  margin: 0 10px 0 0;
+  float: left;
+}
+
+.hidden .round, .round-border.hidden, .round-border.hidden.error, .hidden .round input {
+  background-color: #FFF;
+}
+
+select {
+  font-size: 14px;
+}
+select.round {
+  padding: 2px 4px 4px 0;
+  height: 24px;
+}
+
+div.round input, div.round select {
+  background: none;
+  border: none;
+}
+.left{
+  float:left;
+}
+.listing {
+  width: 600px;
+}
+.listing div {
+  margin: 5px 0 5px 0;
+}
+.listing .url {
+  float: left;
+}
+.listing .count {
+  float: right;
+}
+.listing.highlighted {
+  background: #FFF;
+}

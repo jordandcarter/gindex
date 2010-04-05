@@ -1,16 +1,16 @@
-<p>
-  <%=h current_user.email %>
-</p>
-<p>
-  <b>Last login ip:</b>
-  <%=h current_user.last_login_ip %>
-</p>
- 
-<p>
-  <b>Current login ip:</b>
-  <%=h current_user.current_login_ip %>
-</p>
-<%= link_to "My Websites", websites_path %>
-<%= link_to 'My Details', edit_account_path %>
-<br/><br/>
-<%= link_to 'New website', new_website_path %>
+<div>
+   <%= link_to "Dashboard", websites_path %>
+</div>
+<div>
+   <%= link_to 'My Details', edit_account_path %>
+</div>
+<div>
+<% @websites.each do |website| %>
+   <div>
+    <div><%= link_to h(website.url), website %></div>
+  </div>
+<% end %>
+</div>
+<div>
+   <%= link_to 'New website', new_website_path %>
+</div>
