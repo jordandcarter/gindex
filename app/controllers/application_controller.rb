@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
   
-  layout "websites"
+  layout "default"
   
   private
       def current_user_session

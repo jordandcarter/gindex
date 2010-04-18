@@ -98,10 +98,30 @@ div.name input, .name .round, .name .round-border {
 }
 
 .header {
-  background: url("/images/header_bg.png") no-repeat;
-  width: 801px;
-  height: 69px;
-  margin: 0 auto;
+  width: 100%;
+  min-width: 400px;
+  height: 160px;
+  margin: 0 0;
+  background: url("/images/banner_right.png") repeat-x;
+}
+
+.banner_left {
+  float: left;
+  height: 160px;
+  background: url("/images/banner_left.png") no-repeat;
+  width: 298px;
+}
+
+.gatrack_icon {
+  height: 31px;
+  width: 45px;
+  background: url("/images/gbtrack_icon.png") no-repeat;
+}
+
+.header .gatrack_icon {
+   float:right;
+   top: 110px;
+   position: relative;
 }
 
 .icon_new_employee {
@@ -196,7 +216,7 @@ label.radio {
 }
 
 input {
-  padding: 4px 0 0 4px;
+  padding: 0 0 0 4px;
   height: 20px;
   font-size: 14px;
   color: #B3B3B3;
@@ -231,11 +251,15 @@ input.changed {
 }
 
 .round {
-background-color: #F2F2F2;
+  background-color: #FFD5A4;
+  width: 166px;
+  float: left;
 }
 .round-border {
   padding: 1px;
-  background: #A6A6A6;
+  background: #D07100;
+  width: 166px;
+  float: left;
 }
 .round-border.error {
   background: red;
