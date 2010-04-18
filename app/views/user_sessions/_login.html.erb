@@ -1,8 +1,5 @@
-<h1>Login</h1>
- 
 <% form_for @user_session, :url => user_session_path do |f| %>
-<div class="round-border" style="width: 470px">
-  <div class="round" style="width: 450px; padding:10px;">
+  <div class="login">
     <div class="form_container">
       <div class="element">
         <%= f.error_messages %>
@@ -12,22 +9,30 @@
             <%= f.text_field :email %>
           </div>
         </div>
+        <div class="clear"><!-- / --></div>
       </div>
+      <div class="clear"><!-- / --></div>
       <div class="element">
         <%= f.label :password %>
-      <div class="round-border">
+        <div class="round-border">
           <div class="round">
             <%= f.password_field :password %>
           </div>
         </div>
+        <div class="clear"><!-- / --></div>
       </div>
+      <div class="clear"><!-- / --></div>
       <div class="element">
         <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
       </div>
-      <div class="element">
+      <div class="clear"><!-- / --></div>
+      <p style="margin-top: 30px">By clicking on 'Login' below you are agreeing to the <%= link_to "Terms of Service", terms_of_service_path %></p>
+      <div class="element" style="margin-top: 30px;">
+        <div class="gbtrack_icon left"><!-- / --></div>
         <%= f.submit "Login" %>
+        <div class="clear"><!-- / --></div>
       </div>
+      <div class="clear"><!-- / --></div>
     </div>
-  </div>
 </div>
 <% end %>

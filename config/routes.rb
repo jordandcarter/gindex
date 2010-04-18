@@ -1,7 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  
-  map.graph_swf '/open-flash-chart.swf', :controller => "not_a_controller", :path => '/open-flash-chart.swf'
-  map.resources :graph, :member => {:website => :get}, :collection => {:websites => :get}
+  map.terms_of_service 'terms-of-service', :controller => 'common', :action => 'terms_of_service'
   map.resources :websites
 
   map.login 'login', :controller => 'user_sessions', :action => 'new'  
@@ -11,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :member => {:add_user => :get, :create_user => :post}
   
   map.resource :user_session
-  map.root :controller => "user_sessions", :action => "new"
+  map.root :controller => "common", :action => "home"
   
   # The priority is based upon order of creation: first created -> highest priority.
 

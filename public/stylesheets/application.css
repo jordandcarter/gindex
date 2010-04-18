@@ -1,7 +1,8 @@
-html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
+html{color:#000;background:#FFD33D;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{*font-size:100%;}
 
 .clear {
 clear: both;
+height: 0;
 }
 
 a {
@@ -36,7 +37,7 @@ margin: 0 auto;
 width: 1000px;
 min-height: 800px;
 margin: 0 auto;
-background-color: #fff;
+background-color: #FFD33D;
 }
 
 .left_right_col {
@@ -52,14 +53,13 @@ background-color: #fff;
 
 .right_col {
   float: left;
-  width: 560px;
+  width: 780px;
 }
 
 input[type=radio] {
   margin: 0 5px 0 10px;
 }
 div.element {
-  clear:both;
   margin: 10px 0 0 0;
 }
 div.element label {
@@ -112,13 +112,13 @@ div.name input, .name .round, .name .round-border {
   width: 298px;
 }
 
-.gatrack_icon {
+.gbtrack_icon {
   height: 31px;
   width: 45px;
   background: url("/images/gbtrack_icon.png") no-repeat;
 }
 
-.header .gatrack_icon {
+.header .gbtrack_icon {
    float:right;
    top: 110px;
    position: relative;
@@ -211,6 +211,12 @@ label {
   color: #7A6770;
 }
 
+p {
+  color: #50474b;
+  line-height: 16px;
+  font-size: 14px;
+}
+
 label.radio {
   color: #000;
 }
@@ -251,14 +257,13 @@ input.changed {
 }
 
 .round {
-  background-color: #FFD5A4;
-  width: 166px;
+  background-color: #FFC600;
   float: left;
+  padding: 2px;
 }
 .round-border {
   padding: 1px;
   background: #D07100;
-  width: 166px;
   float: left;
 }
 .round-border.error {
@@ -273,6 +278,13 @@ input.changed {
   background-color: #FFF;
 }
 
+.login {
+  background: url("/images/login.png") no-repeat;
+  height: 307px;
+  width: 351px;
+  padding: 20px;
+}
+
 select {
   font-size: 14px;
 }
@@ -284,6 +296,17 @@ select.round {
 div.round input, div.round select {
   background: none;
   border: none;
+  height: 24px;
+  line-height: 24px;
+  width: 180px;
+  color: #000;
+}
+
+.login input[type="submit"] {
+  height: 24px;
+  width: 180px;
+  float: right;
+  color: #000;
 }
 .left{
   float:left;
