@@ -1,8 +1,50 @@
 <% content_for :title do %>Edit My Account<% end %>
-<h1>Edit My Account</h1>
- 
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Update" %>
-<% end %>
+<h1>Update My Details</h1>
+<div style="width: 390px;margin: 20px auto;">
+  <% form_for @user, :url => account_path do |f| %>
+    <div class="login">
+      <div class="form_container">
+        <div class="element">
+          <%= f.error_messages %>
+          <%= f.label :email %>
+          <div class="round-border">
+            <div class="round">
+              <%= f.text_field :email %>
+            </div>
+          </div>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        <div class="element">
+          <%= f.label :password %>
+          <div class="round-border">
+            <div class="round">
+              <%= f.password_field :password %>
+            </div>
+          </div>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        <div class="element">
+          <%= f.label :password_confirmation %>
+          <div class="round-border">
+            <div class="round">
+              <%= f.password_field :password_confirmation %>
+            </div>
+          </div>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        
+        <div class="element" style="margin-top: 30px;">
+          <div class="gbtrack_icon left"><!-- / --></div>
+          <%= f.submit "Update" %>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+      </div>
+      <p class="notes" style="background: none;">Make sure to use your new email address to login if you change it.</p>
+  </div>
+  <% end %>
+  <p class="notes">Last login was from <span class="light_red"><%= current_user.last_login_ip %></span> at <span class="light_red"><%= current_user.last_login_at.strftime("%d %b, %A") %></span> <span class="small">(<%= time_ago_in_words current_user.last_login_at %> ago)</span></p>
+</div>

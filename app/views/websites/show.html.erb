@@ -1,14 +1,20 @@
-<% content_for :head do %>
-<% end %>
-
-<div id="placeholder" style="height: 400px; width:600px"></div>
-<br/>
-<%= link_to 'Edit', edit_website_path(@website) %> |
-<%= link_to 'Back', websites_path %>
+<% content_for :head do %><% end %>
+<div class="notes" style="margin-bottom:20px;">
+  <p>Google Index Count as of <%= @period.to_s %>. (<%= @period.days %> days ago)</p>
+  <i>This is an approximation of how many pages of each website is contained in Google's index</i>
+  <div class="gbtrack_icon right"><!-- / --></div>
+  <div class="clear"><!-- / --></div>
+</div>
+<div class="placeholder round" style="margin-bottom:10px;">
+  <div style="background: #FFF; padding: 10px;">
+    <div id="placeholder"></div>
+  </div>
+</div>
 <script type="text/javascript">
 $(document).ready(function(){
-      $.plot($("#placeholder"), [
-         { label: "<%= @website.url %>", data: [ <%=@website.counts.from_date(1.month.ago).collect{|count| "[#{count.created_at.to_i*1000}, #{count.count}]"}.join(",") %>]}
-      ], {xaxis:{mode: "time"}} );
+    $(".listing.round_plain.selected").corner("round 5px;");  
+  $.plot($("#placeholder"), [
+     { label: "<%= @website.url %>", data: [ <%=@website.counts.from_date(1.month.ago).collect{|count| "[#{count.created_at.to_i*1000}, #{count.count}]"}.join(",") %>]}
+  ], {xaxis:{mode: "time"}} );
 });
 </script>
