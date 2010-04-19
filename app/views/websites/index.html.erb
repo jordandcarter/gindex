@@ -5,15 +5,11 @@
   <div class="gbtrack_icon right"><!-- / --></div>
   <div class="clear"><!-- / --></div>
 </div>
-<div class="placeholder round" style="margin-bottom:10px;">
-  <div style="background: #FFF; padding: 10px;">
-    <div id="placeholder"></div>
-  </div>
-</div>
+<%= render :partial => "placeholder" %> 
 <div class='clear'><!-- / --> </div>
 <div class="round" style="width: 710px; padding: 10px; margin-left: 10px;">
 <% @websites.each_with_index do |website, i| %>
-  <div class="listing round_plain<%= " highlighted" if i % 2 == 1%>">
+  <div class="listing round_plain<%= " highlighted" if i % 2 == 0 %>">
     <div class="url"><%= link_to h(website.url), website %></div>
     <div class="count"><%=h website.counts.last.nil? ? "na" : website.counts.last.count %></div>
     <div class='clear'><!-- / --> </div>

@@ -29,17 +29,15 @@
     <div class="content">
       <% unless (yield :login).blank? %><div class="login_details"><%= yield :login %></div><% end %>
       <% if flash[:notice] %>
-      <div class="ui-widget">
-      <div class="ui-state-highlight ui-corner-all" style="padding: 0pt 0.7em; margin-top: 20px;">
-      <p><span class="ui-icon ui-icon-info" style="float: left; margin-right: 0.3em; margin-bottom: 0.2em;"><!-- / --></span><div id='flash-notice'> <%= flash[:notice] %></div></p>
-      </div>
+      <div class="flash_notice round_plain border">
+        <div class="flash_notice round_plain">
+          <%= flash[:notice] %>
+        </div>
       </div>
       <% end %>
       <% if flash[:error] %>
-      <div class="ui-widget">
-      <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">
-      <p><span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em; margin-bottom: 0.2em;"></span><div id='flash-error'><%= flash[:error] %></div></p>
-      </div>
+      <div class="flash_error round_plain">
+        <%= flash[:error] %>
       </div>
       <% end %>
       <div class="left_right_col">
@@ -63,8 +61,15 @@
     $('.round').corner("5px");
     $('.round-border').corner("round 5px");
     $(".notes").corner("round 10px");
-    $(".round_plain.highlighted").corner("round 5px");
+    $(".round_plain.highlighted").corner("round 4px");
     $(".round_plain.nav_action").corner("round 5px");
+    <% if flash[:notice] %>
+      $(".round_plain.flash_notice.border").corner("round 5px");
+      $(".round_plain.flash_notice.border .round_plain.flash_notice").corner("round 5px");
+    <% end %>
+    <% if flash[:error] %>
+      $(".round_plain.flash_error").corner("round 5px");
+    <% end %>
   });
   </script>
 </body>

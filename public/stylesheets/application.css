@@ -237,12 +237,22 @@ div.name input, .name .round, .name .round-border {
   padding: 10px;
 }
 
-.notes {
+.notes, .flash_notice, .flash_error {
   font-size: 13px;
   color: #555;
   background: #FFA63D;
   padding: 10px;
   margin: 10px;
+}
+
+.flash_notice {
+  background: #FFD5A4;
+  margin: 0;
+}
+.flash_notice.border {
+  background: #DD861D;
+  padding: 1px;
+  margin: 5px;
 }
 
 .legend {
@@ -367,7 +377,7 @@ div.round input, div.round select {
 }
 .nav_action {
   background: #FFC600;
-  padding: 5px;
+  padding: 5px 10px;;
   margin: 5px 0 5px;
 }
 .left_col .listing {
@@ -409,4 +419,11 @@ div.round input, div.round select {
 }
 .light_red {
   color: #FF2D22;
+}
+
+.left_col .round {
+  background-color: #FFD5A4;
+}
+.placeholder.round {
+  background-color: #FFD5A4;
 }

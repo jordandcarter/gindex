@@ -7,7 +7,7 @@
   </div>
   <div class="round" style="width: 180px; padding: 5px; margin-left: 5px;">
   <% @websites.each_with_index do |website, i| %>
-    <div class="listing round_plain<%= " highlighted" if i % 2 == 1%><%= " selected"if @website && @website == website%>">
+    <div class="listing round_plain<%= " highlighted" if i % 2 == 0 %><%= " selected"if @website && @website == website%>">
       <div class="url"><%= link_to h(website.url), website %></div>
       <% if @website && @website == website%>
         <div class="right"><%= link_to 'Edit', edit_website_path(website) %></div>
@@ -18,6 +18,6 @@
   </div>
       <div class='clear'><!-- / --></div>
   <div class="nav_action round_plain">
-     <%= link_to 'New website', new_website_path %>
+     <%= link_to 'Track another website', new_website_path %>
   </div>
 <% end %>
