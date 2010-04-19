@@ -4,7 +4,7 @@ class Counter
   require 'hpricot'
   require 'open-uri'
   require 'pp'
-  require 'htmlentities/string'
+  require 'htmlentities'
 
 
   #get info from google

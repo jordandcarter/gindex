@@ -1,16 +1,24 @@
-<h1>Editing website</h1>
-
 <% form_for(@website) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
+  <div class="login">
+  <h1>Update <%= @website.url %></h1>
+    <div class="form_container">
+      <div class="element">
+        <%= f.error_messages %>
+        <%= f.label :url %>
+        <div class="round-border">
+          <div class="round">
+            <%= f.text_field :url %>
+          </div>
+        </div>
+        <div class="clear"><!-- / --></div>
+      </div>
+      <div class="clear"><!-- / --></div>
+      <div class="element">
+        <div class="gbtrack_icon left"><!-- / --></div>
+        <%= f.submit "Login" %>
+        <div class="clear"><!-- / --></div>
+      </div>
+      <div class="clear"><!-- / --></div>
+    </div>
+</div>
 <% end %>
-
-<%= link_to 'Show', @website %> |
-<%= link_to 'Back', websites_path %>

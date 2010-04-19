@@ -14,7 +14,10 @@ class ApplicationController < ActionController::Base
   private
   
   def get_websites
-    @websites = current_user.websites(:include => :counts) if current_user
+    if current_user
+      @websites = current_user.websites(:include => :counts)
+      @websites.sort! {|a,b| (b.counts.last.nil? ? 0 : b.counts.last.count) <=> (a.counts.last.nil? ? 0 : a.counts.last.count)}
+    end
   end
   
   def get_period

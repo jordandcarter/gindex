@@ -4,7 +4,6 @@ class WebsitesController < ApplicationController
   # GET /websites
   # GET /websites.xml
   def index
-    @websites.sort! {|a,b| (b.counts.last.nil? ? 0 : b.counts.last.count) <=> (a.counts.last.nil? ? 0 : a.counts.last.count)}
 
     respond_to do |format|
       format.html # index.html.erb
