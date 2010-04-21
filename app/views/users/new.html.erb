@@ -1,8 +1,19 @@
-<% content_for :title do %>Register<% end %>
-<h1>Register</h1>
- 
-<% form_for @user, :url => account_path do |f| %>
-  <%= f.error_messages %>
-  <%= render :partial => "form", :object => f %>
-  <%= f.submit "Register" %>
-<% end %>
+<% content_for :title do %>Sign Up<% end %>
+  <% form_for @user, :url => account_path do |f| %>
+    <div class="form_top"><!-- / --></div>
+    <div class="form_middle">
+      <h1>Sign Up</h1>
+      <%= render :partial => "form", :locals => {:form => f} %>
+      <div class="element" style="margin-top: 30px;">
+        <div class="gbtrack_icon left"><!-- / --></div>
+        <%= f.submit "Update" %>
+        <div class="clear"><!-- / --></div>
+      </div>
+      <div class="clear"><!-- / --></div>
+      <p class="notes" style="background:none;margin:0;">Make sure to use your new email address to login if you change it.</p>
+      <div class="clear"><!-- / --></div>
+    </div>
+    <div class="form_bottom"><!-- / --></div>
+  <% end %>
+  <p class="notes">Last login was from <span class="light_red"><%= current_user.last_login_ip %></span> at <span class="light_red"><%= current_user.last_login_at.strftime("%d %b, %A") %></span> <span class="small">(<%= time_ago_in_words current_user.last_login_at %> ago)</span></p>
+</div>

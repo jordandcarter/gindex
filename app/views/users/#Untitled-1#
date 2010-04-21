@@ -1,0 +1,54 @@
+<% form_for @user, :url => account_path do |f| %>
+    <div class="login">
+    <h1>Update My Details</h1>
+      <div class="form_container">
+        <div class="element">
+          <%= f.label :email %>
+          <div class="round-border">
+            <div class="round">
+              <%= f.text_field :email %>
+            </div>
+          </div>
+          <div class="clear"><!-- / --></div>
+          <div class="errors">
+          <%= error_message_on @user, :email %>
+          </div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        <div class="element">
+          <%= f.label :password %>
+          <div class="round-border">
+            <div class="round">
+              <%= f.password_field :password, :value => "" %>
+            </div>
+          </div>
+          <div class="clear"><!-- / --></div>
+          <div class="errors">
+          Password <%= error_message_on @user, :password %>
+          </div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        <div class="element">
+          <%= f.label :password_confirmation, "Password Confirmation" %>
+          <div class="round-border">
+            <div class="round">
+              Password Confirmation <%= f.password_field :password_confirmation %>
+            </div>
+          </div>
+          <div class="errors">
+          <%= error_message_on @user, :password_confirmation %>
+          </div>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+        
+        <div class="element" style="margin-top: 30px;">
+          <div class="gbtrack_icon left"><!-- / --></div>
+          <%= f.submit "Update" %>
+          <div class="clear"><!-- / --></div>
+        </div>
+        <div class="clear"><!-- / --></div>
+      </div>
+      <p class="notes" style="background:none;margin:0;">Make sure to use your new email address to login if you change it.</p>
+  </div>
+  <% end %>

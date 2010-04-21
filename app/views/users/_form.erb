@@ -1,8 +1,33 @@
-<%= form.label :email %><br />
-<%= form.text_field :email %><br />
-<br />
-<%= form.label :password, form.object.new_record? ? nil : "Change password" %><br />
-<%= form.password_field :password %><br />
-<br />
-<%= form.label :password_confirmation %><br />
-<%= form.password_field :password_confirmation %><br />
+<div class="element">
+  <%= f.label :email %>
+  <div class="round-border<%= " error" if error?(@user, :email) %>">
+    <div class="round">
+      <%= f.text_field :email %>
+    </div>
+  </div>
+  <div class="clear"><!-- / --></div>
+  <%= error_on @user, :email %>
+</div>
+<div class="clear"><!-- / --></div>
+<div class="element">
+  <%= f.label :password, f.object.new_record? ? nil : "Change password" %>
+  <div class="round-border<%= " error" if error?(@user, :password) %>">
+    <div class="round">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+  <div class="clear"><!-- / --></div>
+  <%= error_on @user, :password %>
+</div>
+<div class="clear"><!-- / --></div>
+<div class="element">
+  <%= f.label :password_confirmation %>
+  <div class="round-border<%= " error" if error?(@user, :password_confirmation) %>">
+    <div class="round">
+      <%= f.password_field :password_confirmation %>
+    </div>
+  </div>
+  <div class="clear"><!-- / --></div>
+  <%= error_on  @user, :password_confirmation %>
+</div>
+<div class="clear"><!-- / --></div>

@@ -1,7 +1,7 @@
 class Period
   
   def initialize(days_ago)
-    @days_ago = days_ago
+    @days_ago = days_ago.to_i
   end
   
   def to_s

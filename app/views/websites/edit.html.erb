@@ -1,3 +1,5 @@
+<% content_for :title do %>Update <%= @website.url %><% end %>
+<div class="form_placement">
 <% form_for(@website) do |f| %>
   <div class="login">
   <h1>Update <%= @website.url %></h1>
@@ -13,12 +15,13 @@
         <div class="clear"><!-- / --></div>
       </div>
       <div class="clear"><!-- / --></div>
-      <div class="element">
+    </div>
+    <div class="element bottom_submit">
         <div class="gbtrack_icon left"><!-- / --></div>
-        <%= f.submit "Login" %>
+        <%= f.submit "Update" %>
         <div class="clear"><!-- / --></div>
       </div>
       <div class="clear"><!-- / --></div>
-    </div>
 </div>
 <% end %>
+</div>

@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem "authlogic"
   config.gem "hpricot"
   config.gem "htmlentities", :version => '4.2.1'
+  config.gem 'formtastic'
   
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
