@@ -65,11 +65,11 @@ class Counter
         doc = Hpricot(html_page)
         data = "0"
         start = Time.now
-        i = doc.search('#ssb/p/b[3]')
+        i = doc.search("//div[@id='resultStats']")
         i.each do |div|
           data = div.inner_html
         end
-    data
+      data.match(/([01-9,]+)/)[0].gsub(/,/,'').to_i rescue 0
   end
   
   #remove crap from keywords and add + where spaces are (for googlesearch url)
